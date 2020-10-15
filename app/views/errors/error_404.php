@@ -1,3 +1,10 @@
+<?php 
+	// echo 
+
+	echo ENVIRONMENT . "<br>";
+	echo FCPATH . "<br>";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

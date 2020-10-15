@@ -2,7 +2,11 @@
 if ($_SERVER['SERVER_NAME'] == 'kool.test' || $_SERVER['SERVER_NAME'] == 'localhost') {
 	// $base_sys = 'http://kool.test/';
 
-	$base_sys = 'http://' . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/';
+	$server_name = $_SERVER['SERVER_NAME'];
+	$server_port = $_SERVER['SERVER_PORT'];
+	$server_port = $server_port !== '80' ? $server_port : '';
+
+	$base_sys = 'http://' . $server_name . ($server_port ? ":" : '') . $server_port . '/';
 
 	define('APP_MODE', 'dev');
 

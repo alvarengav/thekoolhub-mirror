@@ -1,0 +1,10 @@
+<div class="close">
+    <svg class="L_nea_37" viewBox="0 0 14 14" style=" position: absolute;">
+        <path fill="transparent" stroke="rgba(255,255,255,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" class="L_nea_37_Class" d="M 0 0 L 14 14">
+        </path>
+    </svg>
+    <svg class="L_nea_38" viewBox="0 0 14 14" style=" position: absolute;">
+        <path fill="transparent" stroke="rgba(255,255,255,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" class="L_nea_38_Class" d="M 14 0 L 0 14">
+        </path>
+    </svg>
+</div>

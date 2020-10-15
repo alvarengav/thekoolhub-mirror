@@ -1,0 +1,101 @@
+#footer {
+    background: $gray3;
+    padding-top: 6rem;
+    .title {
+        font-weight: bold;
+        font-size: 1.125em;
+        letter-spacing: 0.01em;
+        line-height: 1.5em;;
+        text-align: left;
+        color: #fff;
+        margin-bottom: 1rem;
+
+    }
+    .link {
+        display: block;
+        text-decoration: none;
+        font-weight: normal;
+        font-size: 0.875em;
+        line-height: 2em;
+        text-align: left;
+        color: #fff;
+    }
+    .form {
+        input {
+            background: transparent;
+            border: transparent;
+            outline: transparent;
+            height: 28px;
+            font-weight: 300;
+            font-style: italic;
+            font-size: 0.875em;
+            line-height: 0.375em;
+            margin-bottom: 1rem;
+            color: $yellow;
+            display: block;
+            width: calc(100% -40px);
+            &::placeholder {
+                color: $gray1;
+            }
+        }
+        hr {
+            padding: 0;
+            border-bottom: 1px solid $gray1;
+            margin-bottom: 1.5rem;
+        }
+
+        .send {
+            padding: 0;
+            float: right;
+            border: transparent;
+            background: transparent;
+            margin-top: -38px;
+            color: $yellow;
+        }
+    }
+    .incont1 {
+        padding-bottom: 4rem;
+        border-bottom: 1px solid white;
+        margin-bottom: 4rem;
+        @include down(sm) {
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            .row {
+                flex-direction: row;
+                padding-bottom: 1rem;
+                .col {
+                    flex-basis: auto;
+                    width: 50%;
+                    padding-bottom: 1rem;
+                }
+                // flex-direction: column;
+            }
+        }
+    }
+
+    .social {
+        float: left;
+        a {
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+    }
+    .phone {
+        float: right;
+        margin-bottom: 2rem;
+        a {
+            text-decoration: none;
+        }
+    }
+    .copy {
+        font-weight: 300;
+        font-size: 0.75em;
+        line-height: 1.5em;;
+        text-align: center;
+        color: #fff;
+        padding-bottom: 4rem;
+        svg {
+            margin-left: 5px;
+        }
+    }
+}

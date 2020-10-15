@@ -1,0 +1,108 @@
+.plan-tariffs {
+    background-color: $gray1;
+    padding-top: 0;
+    padding-bottom: 8rem;
+    @include down(md) {
+        padding-bottom: 4rem;
+    }
+    .title {
+        @extend .h1;
+        margin-bottom: 6rem;
+        
+        @include down(md) {
+            margin-bottom: 4rem;
+        }
+    }
+    .row {
+        justify-content: center;
+        text-align: center;
+        @include down(sm) {
+            .col-md-4 {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+    .box {
+        text-align: center;
+        background-color: white;
+        height: 470px;
+        @include down(md) {
+            height: 350px;
+            
+        }
+        display: flex;
+        align-items: center;
+        padding: 4em;
+        margin-bottom: 2rem;
+        .box-icon {
+            margin-bottom: 2rem;
+            svg, img {
+                width: 47px;
+            }
+        }
+        .center {
+            width: 100%;        
+        }
+        .box-title {
+            font-weight: 600;
+            font-size: 1.75em;
+            margin-bottom: 1.75em;
+            letter-spacing: 0em;
+            line-height: 34px;
+            text-align: center;    
+        }
+        .box-text {
+            font-weight: 300;
+            font-size: 1em;
+            letter-spacing: 0.01em;
+            line-height: 1.5em;
+            text-align: center;
+            opacity: .8;
+            margin-bottom: 2rem;
+        }
+        .box-text2 {
+            font-weight: 300;
+            font-size: 1em;
+            letter-spacing: 0.01em;
+            line-height: 1.2rem;
+            text-align: center;
+            opacity: .8;
+        }
+        .box-text3 {
+            font-weight: 600;
+            font-size: 1.75em;
+            margin-bottom: 1.75rem;
+            letter-spacing: 0em;
+            line-height: 34px;
+            text-align: center;    
+        }
+    }
+    @media all and (max-width: 1600px) {
+        .btn {
+            font-size: 1em;
+        }
+    }
+
+    &.grid-boxes-white-gray {
+        background: white;
+        .box {
+            background: $gray1;
+        }
+    }
+    &.grid-boxes-gray-white {
+        background: $gray1;
+        .box {
+            background: white;
+        }
+    }
+    &.grid-boxes-pink {
+        .title {
+            color: white;
+        }
+        background-color: $pink;
+        .btn-outline {
+            color: white;
+            border-color: white;
+        }
+    }
+}

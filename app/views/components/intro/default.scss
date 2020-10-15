@@ -1,0 +1,60 @@
+.intro {
+    font-family: "Raleway",sans-serif !important;
+    text-align: center;
+    line-height: 1.5em;
+    padding: 140px 0 56px;
+    &.intro-green {
+        background-color: $cyan;
+        svg.ArrowDown * { fill:$gray3 !important; }
+    }
+    &.intro-yellow {
+        background-color: $yellow;
+        svg.ArrowDown * { fill:$gray3 !important; }
+    }
+    &.intro-pink {
+        background-color: $pink;
+        svg.ArrowDown * { fill:$gray3 !important; }
+    }
+    &.intro-black {
+        background-color: $gray3;
+        svg.ArrowDown * { fill:$yellow !important; }
+        .intro-title-secondary {
+            color: $yellow;
+        }
+    }
+    &-title {
+        &-main {
+            color: $white;
+            font-size: 2.5em;
+            line-height: 1.5em;
+            margin-bottom: 5px;
+        }
+        &-secondary {
+            font-weight: 300;
+            font-size: 1em;
+            color: $black;
+            text-transform: uppercase;
+        }
+    }
+    &-content {
+        font-size: 1.5em;
+        color: $white;
+        max-width: 1000px;
+        margin: 36px auto 48px;
+        &-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        &-description {
+            font-weight: 300;
+            line-height: 1.5;
+        }
+    }
+    .ArrowDown {
+        width: 10.079px;
+        height: 36.73px;
+        display: block;
+        margin: 0 auto;
+        animation: topdownpulse 3s infinite ease-in-out;
+    }
+}

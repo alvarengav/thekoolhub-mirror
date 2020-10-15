@@ -1,0 +1,35 @@
+//=include 'jquery/jquery-3.2.1.js'
+//=include 'jquery/jquery-ui.js'
+
+//=include 'misc/moment.js'
+//=include 'misc/pace.js'
+//=include 'misc/imagesloaded.pkgd.js'
+//=include 'misc/smart-notification.js'
+//=include 'misc/decimal.js'
+
+//=include 'bootstrap/bootstrap.js'
+//=include 'bootstrap/bootstrap-select.js'
+//=include 'bootstrap/bootstrap-datetimepicker.js'
+//=include 'bootstrap/daterangepicker.js'
+
+//=include 'jquery/jquery.slimscroll.js'
+//=include 'jquery/jquery.validate.js'
+//=include 'jquery/fancybox/3.0.47/jquery.fancybox.js'
+
+//=include 'jquery/clusterize.js'	
+//=include 'jquery/jquery.colpick.js'	
+//=include 'jquery/jquery.ambiance.js'
+
+//=include 'jquery/jquery-upload/load-image.min.js'
+//=include 'jquery/jquery-upload/jquery.ui.widget.js'
+//=include 'jquery/jquery-upload/jquery.iframe-transport.js'
+//=include 'jquery/jquery-upload/jquery.fileupload.js'
+//=include 'jquery/jquery-upload/jquery.fileupload-process.js'
+//=include 'jquery/jquery-upload/jquery.fileupload-image.js'
+//=include 'jquery/jquery-upload/jquery.fileupload-validate.js'
+
+//=include 'datatables/dataTables.js'
+//=include 'datatables/ColReorder.min.js'
+//=include 'datatables/FixedHeader.js'
+//=include 'datatables/ColVis.min.js'
+//=include 'datatables/DT_bootstrap.js'

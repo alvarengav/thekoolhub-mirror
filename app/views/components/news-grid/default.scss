@@ -1,0 +1,177 @@
+.news-grid {
+    background-color: white;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    .title {
+        @extend .h1;
+        margin-bottom: 2rem;
+    }
+    
+    .subtitle {
+        max-width: 700px;
+        margin: 0 auto;
+        margin-bottom: 4rem;
+        font-weight: 300;
+        font-size: 1.5em;
+        line-height: 1.5em;
+        text-align: center;
+    }
+
+    .end-btn {
+        text-align: center;
+        padding-top: 2rem;
+    }
+    .grid {
+        display: grid;
+        padding-bottom: 2rem;
+
+        grid-template-columns: repeat(3, 1fr) repeat(2, 0);
+        // grid-template-rows: repeat(2, 1fr) repeat(3, 0);
+        grid-column-gap: 2rem;
+        grid-row-gap: 2rem;
+        .div1 { 
+            grid-area: 1 / 1 / 3 / 3; 
+            height: 100%; 
+            .box {
+                @include up(lg) {                    
+                    padding-right: 15rem;
+                    @include down(md) {
+                        padding-right: 4rem;
+                    }
+                    .box-title {
+                        font-size: 2em;;
+                    }
+                }
+            }
+
+        }
+        .div2, .div3 { 
+            grid-area: 1 / 3 / 2 / 4; 
+            height: 100%;
+            .box-subtitle { 
+                display:none;
+                @include down(md) {
+                    display:block;
+                    
+                }
+            }
+        }
+        .div3 {
+            grid-area: 2 / 3 / 3 / 4;
+        }
+        @include down(md) {
+            display: flex;
+            flex-direction: column;
+            .div1,.div2,.div3 {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+    .box {
+        height: 100%;
+        text-align: center;
+        background-color: $gray2;
+        background-size: cover;
+        color: white;
+        position: relative;
+        cursor: pointer;
+        .center {
+            z-index: 2;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            @include down(md) {
+                padding-bottom: 6rem;
+            }
+        }
+        .bgc {
+            z-index: 1;
+        }
+        .box-icon {
+            margin-bottom: 2rem;
+            svg, img {
+                width: 47px;
+            }
+        }
+        .box-text {
+            text-align: left;
+            padding: 3rem;
+            margin-bottom: 5rem;
+            @include down(md) {
+                margin-bottom: 0rem;
+            }
+            @include down(sm) {
+                padding: 2rem;
+            }
+        }
+        .box-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            line-height: 1.5em;
+            margin-bottom: 1rem;
+        }
+        .box-subtitle {
+            font-size: 1em;
+            line-height: 1.2em;
+        }
+        .box-date {
+            position: absolute;
+            bottom: 3rem;
+            left: 3rem;
+            font-weight: 300;
+            font-size: 0.75em;
+            line-height: 1.5em;
+            text-align: left;
+            opacity: .8;
+            @include down(sm) {
+                bottom: 2rem;
+                left: 2rem;
+            }
+            svg {
+                margin-right: 5px;
+                margin-top: -2px;
+            }
+        }
+        .more {
+            position: absolute;
+            left: auto;
+            right: 3rem;
+            bottom: 3rem;
+            opacity: 0;
+            transition: all .3s ease-in-out;
+            font-weight: 600;
+            svg *,
+            svg {
+                fill: $gray3 !important;
+            }
+            .link {   
+                color: $gray3;
+            }
+        }
+        transition: all .3s ease-in-out;
+        &:hover {
+            background: $yellow !important;
+            .bgc {
+                opacity: 0;
+            }
+            .more {
+                opacity: 1;
+            }
+        }
+        &:nth-child(3):hover {
+            background: $pink !important;
+        }
+    }
+    .div2 .box:hover {
+        background: $green !important; .box-subtitle { display:none }
+    }
+    .div3 .box:hover {
+        background: $pink !important;
+    }
+}
+
+@include down(md) {
+.mobile-hide {
+        display:none;
+    }
+}

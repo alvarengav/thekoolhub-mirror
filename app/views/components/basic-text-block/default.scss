@@ -1,0 +1,55 @@
+.basic-text-block {
+    font-family: "Raleway",sans-serif !important;
+    text-align: center;
+    line-height: 1.5em;
+    padding: 145px 0;
+    color: $black;
+    &-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    &-title {
+        font-size: 2.5em;
+        line-height: 1.5em;
+        margin-bottom:1.5em;
+    }
+    &-description {
+        font-size: 24px;
+        line-height: 1.5em;
+        @media all and (max-width: 1600px) {
+            font-size: 1.2em;
+            line-height: 1.3em;
+        }
+    }
+    &.inner-btn-outline-yellow {
+        
+        .btn-outline {
+            
+            border-color: $yellow;
+            color: $yellow;
+        }
+    }
+    &.basic-text-block-pink {
+        background: $pink;
+        color: white;
+        .btn-outline {
+            
+            border-color: $white;
+            color: white;
+        }
+    }
+    &.basic-text-block-gray1 {
+        background: $gray1;
+    }
+    .btn {
+        margin-top: 4rem;
+    }
+    &.child-btn-yellow .btn-outline {
+        border-color: $yellow;
+        color: $yellow;
+        &:hover {
+            background-color: $yellow;
+            color: white;
+        }
+    }
+}

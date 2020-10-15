@@ -1,0 +1,83 @@
+.text-and-grid {
+    background: $gray3;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    @include down(sm) {
+        padding: 4rem 0;
+    }
+    .title {
+        @extend .h1;
+        text-align: left;
+        color: white;
+        margin-bottom: 4rem;
+        padding-right: 4rem;
+        @include down(sm) {
+            margin-bottom: 2rem;
+            padding-right: 0rem;
+        }
+    }
+    .text {
+        color: white;
+        font-size: 1.2em;
+        line-height: 1.3em;
+        font-weight: 100;
+        text-align: left;
+        margin-bottom: 4rem;
+        padding-right: 4rem;
+        @include down(sm) {
+            padding-right: 0rem;
+            margin-bottom: 2rem;
+        }
+    }
+    .more {
+        font-weight: 600;
+        text-align: left;
+        @include down(md) {
+            padding-bottom: 4rem;
+        }
+    }
+    .col-md-6 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid {
+        padding-left: 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        @include down(md) {
+            padding-left: 0rem;
+        }
+        .item {
+            text-align: center;
+            .item-title {
+                font-weight: 300;
+                font-size: 1em;
+                letter-spacing: 0.01em;
+                line-height: 1.5em;
+                text-align: center;
+                color: #fff;
+                margin-bottom: .5rem;
+                margin-top: 1.5rem;
+                padding: 0 1rem;
+            }
+            .item-subtitle {
+                font-family: "Raleway",sans-serif !important;
+                padding: 0 1rem;
+                font-weight: 300;
+                font-size: 0.75em;
+                line-height: 1em;
+                text-align: center;
+                color: #ffa900;
+                margin-bottom: 2rem;
+            }
+            .item-img {
+                width: 80%;
+                border-radius: 100%;
+            }
+        }
+    }
+}

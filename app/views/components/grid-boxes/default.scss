@@ -1,0 +1,118 @@
+.grid-boxes {
+    background-color: $gray1;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    @include down(md) {
+        padding: 4rem 1rem;
+    }
+    .title {
+        @extend .h1;
+        margin-bottom: 6rem;
+    }
+    &.grid-col-3 {
+        .box {
+
+            height: 350px;
+        }
+    }
+    .box {
+        text-align: center;
+        background-color: white;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        padding: 4em 2em;
+        margin-bottom: 2rem;
+        @media all and (max-width: 1600px) {
+            padding: 2em;
+        }
+        @include down(md) {
+            padding: 2em;
+            height: 350px;
+        }
+        .box-icon {
+            // margin-bottom: 2rem;
+            height: 80px;
+            svg, img {
+                width: 47px;
+            }
+        }
+        .center {
+            width: 100%;        
+        }
+        .box-title {
+            font-weight: 600;
+            font-size: 1.75em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0em;
+            line-height: 1.5em;
+            text-align: center; 
+            position: absolute;
+            top: 4.5rem;
+            left: 0;
+            right: 0;
+        }
+        .box-text {
+            font-weight: 300;
+            font-size: 1em;
+            letter-spacing: 0.01em;
+            line-height: 1.4em;
+            margin-top: 3rem;
+            text-align: center;
+            opacity: .8;
+        }
+    }
+
+    &.grid-boxes-white-gray {
+        background: white;
+        .box {
+            background: $gray1;
+        }
+    }
+    &.grid-boxes-gray-white {
+        background: $gray1;
+        .box {
+            background: white;
+        }
+    }
+    &.grid-boxes-gray-pink {
+        background: $pink;
+    }
+    &.grid-boxes-gray-black {
+        background: $gray3;
+    }
+    &.boxes-transparent {
+        color: white;
+        .title {
+            color: white;
+        }
+        svg, svg * {
+           stroke: white; 
+        }
+        .box {
+            background: transparent;
+            height: auto;
+            display: flex;
+            align-items: center;
+            padding: 0em 2em;
+            .box-title {
+                top: 0;
+                position: relative;
+            }
+            .box-text {
+                margin-top: 0;
+            }
+        }
+    }
+    
+    &.grid-boxes-gray-gray {
+        background: $gray1;
+        color: $gray3;
+        .title {
+            color: $gray3;
+        }
+        svg, svg * {
+           stroke: $gray3; 
+        }
+    }
+}

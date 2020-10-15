@@ -1,0 +1,1 @@
+<script>if(window.opener) window.opener.DataT._fnAjaxUpdate();window.close();</script>

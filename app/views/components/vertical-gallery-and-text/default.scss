@@ -1,0 +1,176 @@
+.vertical-gallery-and-text {
+    font-family: "Raleway",sans-serif !important;
+    text-align: left;
+    color: $black;
+    display: flex;
+    flex: 1;
+    background-color: $gray1;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    @include down(md) {
+        padding: 4rem 0;
+        flex-direction: column;
+    }
+    &-right {
+        @include up(lg) {
+            flex-direction: row-reverse;
+            .swiper-container-vertical>.swiper-pagination-bullets {
+                right: 0;
+                left: 30px;
+            }
+        }
+    }
+    &-img {
+        width: 100%;
+        max-width: 50%;
+        max-height: 80vh;
+
+        @include down(sm) {
+            max-height: 50vh;
+            min-height: 50vh;
+        }
+        @include down(md) {
+            max-width: 100%;
+        }
+        img {
+            height: 100%;
+            width: 100%;
+            max-height: 80vh;
+            @include down(sm) {
+                max-height: 50vh;
+                min-height: 50vh;
+            }
+            object-fit: cover;
+            object-position: center center;
+
+        }
+    }
+    &-content {
+        width: 100%;
+        max-width: 50%;
+
+        padding: 0 8rem;
+        @media all and (max-width: 1600px) {
+            padding: 0 8rem 0 4rem;
+        }
+        @include down(md) {
+            max-width: 100%;
+            padding: 2rem;
+        }
+        display: flex;
+        align-items: center;
+    }
+    &-title {
+        font-size: 2.5em;
+        margin-bottom: 1rem;
+        line-height: 1.2em;
+
+        @media all and (max-width: 1600px) {
+            font-size: 2.2em;
+        }
+    }
+    &-description {
+        font-size: 1.5em;
+        line-height: 1.5em;
+        @media all and (max-width: 1600px) {
+            font-size: 1.2em;
+            line-height: 1.3em;
+        }
+    }
+    .btn {
+        margin-top: 4rem;
+        margin-right: 2rem;
+        @include down(md) {
+            margin-top: 2rem;
+            
+        }
+    }
+    .download {
+        display: inline-block;
+        margin-top: 4rem;
+        line-height: 4.125rem;
+        vertical-align: middle;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.125em;
+        letter-spacing: 0.01em;
+        line-height: 3rem;
+        color: $gray3;
+        svg {
+            margin-right: 5px;
+            margin-top: -2px;
+        }
+        @include down(md) {
+            margin-top: 1rem;
+        }
+    }
+
+
+    .vertical-gallery {
+        max-height: 80vh;
+        min-height: 80vh;
+
+        @include down(sm) {
+            max-height: 50vh;
+            min-height: 50vh;
+        }
+        cursor: grab;
+        .vertical-gallery .swiper-slide {
+            max-height: 80vh;
+            min-height: 80vh;
+            // height: 900px;
+            @include down(sm) {
+                max-height: 50vh;
+                min-height: 50vh;
+            }
+        }
+        .swiper-pagination-bullet {
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+        }
+        .swiper-pagination-bullet {
+            opacity: .5;
+            background-color: white;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background-color: white;
+        }
+    }
+
+    &.custom-pink {
+        background-color: $pink;
+        color: white;
+        .download svg * {
+            fill: white; 
+        }
+        .btn-black-outline {
+            border-color: white;
+            color: white;
+        }
+        .download {
+            color: white;
+        }
+    }
+    &.custom-white {
+        background-color: white;
+    }
+
+    &.custom-green {
+        background-color: $cyan;
+        color: white;
+        .download svg * {
+            fill: white; 
+        }
+        .btn-black-outline {
+            border-color: white;
+            color: white;
+        }
+        .download {
+            color: white;
+        }
+    }
+    &.no-padding-top {
+        padding-top: 0;
+    }
+}

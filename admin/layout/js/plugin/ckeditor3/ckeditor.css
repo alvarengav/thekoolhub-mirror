@@ -1,0 +1,99 @@
+*{
+margin:0;
+padding:0
+}
+body{
+font-family:Dax-Compact-Regular,Tahoma,Geneva,Verdana,Lucida Sans Unicode,Lucida Grande,Arial,sans-serif;
+font-size:12px;
+color:#333;
+background-color:#FFF;
+margin:8px 16px
+}
+blockquote{
+font-style:italic;
+font-family:Georgia,Times,Times New Roman,serif;
+padding:2px 0;
+border-style:solid;
+border-color:#CCC;
+border-width:0
+}
+.cke_contents_ltr blockquote{
+padding-left:20px;
+padding-right:8px;
+border-left-width:5px
+}
+.cke_contents_rtl blockquote{
+padding-left:8px;
+padding-right:20px;
+border-right-width:5px
+}
+a{
+color:#0782C1
+}
+ol,ul,dl{
+*margin-right:0px;
+padding:0 20px
+}
+h1{
+font-size:280%;
+margin-bottom:6px
+}
+h2{
+font-size:250%;
+margin-bottom:6px
+}
+h3{
+font-size:220%;
+margin-bottom:5px
+}
+h4{
+font-size:190%;
+margin-bottom:5px
+}
+h5{
+font-size:160%;
+margin-bottom:4px
+}
+h6{
+font-size:130%;
+margin-bottom:4px
+}
+p{
+font-size:100%;
+margin-bottom:4px
+}
+hr{
+border:0px;
+border-top:1px solid #CCC
+}
+img.right{
+border:1px solid #CCC;
+float:right;
+margin-left:15px;
+padding:5px
+}
+img.left{
+border:1px solid #CCC;
+float:left;
+margin-right:15px;
+padding:5px
+}
+img:hover{
+opacity:.9;
+filter:alpha(opacity = 90)
+}
+body .app-span-bold{
+font-weight:bold!important
+}
+body .app-span-italic{
+font-style:italic!important
+}
+body .app-span-underline{
+text-decoration:underline!important
+}
+body .app-span-strike{
+text-decoration:line-through!important
+}
+body .cke_panel_listItem a span{
+font-size:12px!important
+}

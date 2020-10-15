@@ -1,0 +1,70 @@
+#header {
+    position: fixed;
+    z-index: 1010;
+
+    .main-logo {
+        left: 40px;
+        top: 30px;
+        @include down(sm) {
+            left: 15px;
+            top: 15px;
+            transform: scale(.75);
+            transform-origin: left top;
+        }
+        display: block;
+        position: absolute;
+        svg {
+            transition: ease-in-out .3s all;
+        }
+    }
+    .cover {
+        background: transparent;
+        height: 10px;
+        width: 100vw;
+        left: 0;
+        right: 0;
+        top: 0px;
+        position: absolute;
+        transition: .3s top ease-in-out;
+    }
+    
+
+}
+
+.main-logo {
+    svg {
+        transform: scale(.75);
+        transform-origin: left top;
+    }
+}
+
+.header-scroll:not(.open-rmenu) #header {
+    // .cover {
+    //     top: 0;
+    // }
+    .main-logo {
+        top: 15px;
+        svg {
+            transform: scale(.75);
+            transform-origin: left top;
+            top: 15px;
+        }
+    }
+    .rmenu-btn {    
+        transform: scale(.75);
+        transform-origin: right top;
+        top: 15px;
+    }
+}
+
+.header-color:not(.open-rmenu) {
+    .main-logo svg, .main-logo svg * {
+        fill: $gray3;
+    }
+    .rmenu-btn {
+        background-color: $gray3;
+    }
+    .rmenu-btn .bars, .rmenu-btn .bars:before, .rmenu-btn .bars:after {
+        background: white;
+    }
+}

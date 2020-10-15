@@ -1,0 +1,198 @@
+.grid-boxes-img-text {
+    padding: 6rem 0;
+    padding-bottom: 2rem;
+    
+    @media all and (max-width: 1600px) {
+        padding: 6rem;
+    }
+    @include down(md) {
+        
+        padding: 4rem 0;
+    }
+    .box {
+        margin-bottom: 4rem;
+        display: flex;
+        @include down(sm) {
+            flex-direction: column;
+        }
+        .picture {
+            width: 50%;
+            background-color: $gray2;
+            height: 790px;
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+            @include down(sm) {
+                width: 100%;
+                height: 300px;
+            }
+        }
+        .textContent {
+            .center {
+                width: 100%;
+            }
+            background: white;
+            width: 50%;
+            @include down(sm) {
+                width: 100%;
+            }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            @include down(sm) {
+                padding: 2rem
+            }
+            .title {
+                color: white;
+                margin-bottom: 1rem;
+                font-weight: bold;
+                font-size: 1.5em;
+                line-height: 1.5em;
+                text-align: left;
+                color: $gray3;
+            }
+            .text {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                line-height: 1.5em;
+                color: $gray3;
+            }
+            .info {
+                display: flex;
+                div:first-child {
+                    margin-right: 2rem;
+                }
+                color: $pink;
+                svg * {
+                    fill: $pink;
+                }
+                a {
+                    color: $pink;
+                }
+                .date {
+                    font-weight: 300;
+                    font-size: 0.75em;
+                    line-height: 1.5em;;
+                    svg {
+                        margin-top: -5px;
+                        margin-right: 5px;
+                    }
+                }
+                .time {
+                    font-weight: 300;
+                    font-size: 0.75em;
+                    line-height: 1.5em;;
+                    svg {
+                        margin-top: -5px;
+                        margin-right: 5px;
+                    }
+                }
+                .register {
+                    display: inline-block;
+                    text-decoration: none;
+                    font-size: 1em;
+                    letter-spacing: 0.01em;
+                    line-height: 1em;
+                    svg {
+                        margin-top: -2px;
+                        margin-left: 5px;
+                        margin-right: 1rem;
+                    }
+                }
+                .download {
+                    text-decoration: none;
+                    font-size: 1em;
+                    letter-spacing: 0.01em;
+                    line-height: 1em;
+                    svg {
+                        margin-top: -2px;
+                        margin-right: 5px;
+                    }
+                    svg * {
+                        fill: $pink;
+                    }
+                }
+            }
+        }
+
+    }
+    .box-pink {
+        .textContent {
+            background: $pink;
+            .text,
+            .title {
+                color: white;
+            }
+            
+            .info {
+                color: $gray3;
+                a {
+                    color: $gray3;
+
+                }
+                svg * {
+                    fill: $gray3;
+                }
+                .download {
+                    svg * {
+                        stroke: $gray3;
+                    }
+                }
+            }
+        }
+    }
+    .box-green {
+        .textContent {
+            background: $cyan;
+            .text,
+            .title {
+                color: white;
+            }
+            
+            .info {
+                color: $gray3;
+                a {
+                    color: $gray3;
+
+                }
+                svg * {
+                    fill: $gray3;
+                }
+                .download {
+                    svg * {
+                        stroke: $gray3;
+                    }
+                }
+            }
+        }
+    }
+    .box-yellow {
+        .textContent {
+            background: $yellow;
+            .text,
+            .title {
+                color: white;
+            }
+            
+            .info {
+                color: $gray3;
+                a {
+                    color: $gray3;
+
+                }
+                svg * {
+                    fill: $gray3;
+                }
+                .download {
+                    svg * {
+                        stroke: $gray3;
+                    }
+                }
+            }
+        }
+    }
+}

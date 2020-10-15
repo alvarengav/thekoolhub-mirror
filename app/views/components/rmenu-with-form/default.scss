@@ -1,0 +1,359 @@
+$rmenu-background: $yellow;
+$rmenu-color: $gray3;
+$rmenu-bordercolor: rgba($yellow, .1);
+$rmenu-maxwidth: 400px;
+$rmenu-zindex: 1010;
+$transition: transform ease-in-out .3s;
+.appendRmenu {
+	display: flex;
+	visibility: hidden;
+}
+.rmenu {
+	.appendRmenu {
+		display: flex;
+		visibility: visible;
+	}
+	position: fixed;
+	top: 0;
+	right: -100vw;
+	bottom: 0;
+	left: auto;
+	width: 100vw;
+	height: 100%;  
+	// max-height: 100vh;
+	// min-height: -webkit-fill-available;
+	overflow: hidden;
+	transition: $transition;
+	background: $rmenu-background;
+	color: $brand-primary;
+	z-index: $rmenu-zindex;
+	font-family: $font-family-sans-serif;
+	.fa-times-thin:before {
+		content: '\00d7';
+	}
+	.header-link-selected {
+		color: $gray-dark;
+	}
+	&__ul {
+		list-style: none;
+		padding: 100px 0 0 0;
+		height: 100%;
+		position: relative;
+		min-height: -webkit-fill-available;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		@include down(md) {
+			font-size: 3.75em;
+			padding: 100px 0 0 0;
+		}
+		li {
+			padding-left: 60px;
+			line-height: 100%;
+			position:relative;
+			justify-content: flex-start;
+			align-items: center;
+			display: flex;
+			// background: $pink;
+			cursor: pointer;
+			&:last-child {
+				padding: 0;
+				@include up(sm) {
+					display:none;
+				}
+			}
+			color: $gray-dark;
+			text-align: left;
+			font-size: 3rem;
+			
+
+			.close {
+				display: none;
+			}
+			&:hover {
+				background: $gray;
+			}
+
+			@include down(md) {
+				font-size: 60px;
+				text-align: center;
+			}
+			@include down(sm) {
+				font-size: 40px;
+			}
+			.divider {
+				font-weight: 700;
+				padding-left: $spacer;
+				color: $brand-danger;
+			}
+			a {
+				color: white;
+				position: relative;
+				transition: color 0.5s ease;
+				text-decoration: none!important;
+				
+				// &:hover {
+				// 	color: $brand-danger;
+				// }
+				// &.header-link-selected {
+				// 	font-weight: 700;
+				// 	color: $brand-primary;
+				// 	&:after {
+				// 		max-width: 100%;
+				// 	}
+				// }
+			}
+			.main-nav__btn {
+				float: left;
+				right: 0;
+			}
+			.social-network-icons {
+				float: right;
+			}
+			// &:first-child {
+			// 	padding-bottom: $spacer*4;
+			// }
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+	}
+	.rmenu-close {
+		top: 30px;
+		@extend .close;
+		&:before,
+		&:after {
+			background-color: #fff;
+		}
+		// &:hover {
+		// 	color: $gray;
+		// }
+	}
+}
+.rmenu-btn {
+	transition: $transition;
+	// @include up(lg) {
+	// 	display: none;
+	// }
+	align-self: center;
+	background-color: white;
+	display: block;
+	z-index: $rmenu-zindex;
+	cursor: pointer;
+	position: fixed;
+	height: 60px;
+	width: 60px;
+	right: 40px;
+	@include down(sm) {
+		top: 15px;
+		right: 15px;
+		transform: scale(.75);
+        transform-origin: right top;
+	}
+    top: 30px;
+	.bars {
+		top: 28px;
+		left: 15px;
+		// transition: $transition;
+		&,
+		&:before,
+		&:after {
+			width: 30px;
+			height: 4px;
+			content: '';
+			background: $rmenu-color;
+			display: block;
+			position: relative;
+			transition: transform ease-in-out .1s;
+		}
+		&:before {
+			top: -9px;
+		}
+		&:after {
+			top: 6px;
+		}
+	}
+	&-x {
+		.bars {
+			background-color: transparent !important;
+			visibility: hidden;
+			&:after {
+				visibility: visible;
+				opacity: 1;
+				transform: rotateZ(45deg);
+				top: -1.5px;
+			}
+			&:before {
+				visibility: visible;
+				transform: rotateZ(-45deg);
+				top: 1.5px;
+			}
+		}
+	}
+}
+
+body.open-rmenu {
+	overflow:hidden !important;
+	.rmenu {
+		right: 0;
+	}
+	#logo-real * {
+		// fill: $pink;
+	}
+}
+
+
+.header-scroll {
+	.rmenu__ul {
+		padding: 70px 0 0 0;
+	}
+}
+
+.appendRmenu {
+	display: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	.col1 {
+		width: 45%;
+		height: 100%;
+		background-color: $gray3;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-left: 8rem;
+		padding-right: 8rem;
+		
+		@media all and (max-width: 1600px) {
+			padding-left: 5rem;
+			padding-right: 5rem;
+		}
+		@include down(md) {
+			display: none;
+		}
+	}
+	.col2 {
+		width: 55%;
+		@include down(sm) {
+			width: 90%;
+			
+		}
+		height: 100%;
+		background-color: $yellow;
+		padding: 2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		.social {
+			padding-bottom: 2rem;
+			padding-top: 1rem;
+			display: flex;
+			width: 100%;
+			justify-content: space-around;
+			a {
+				text-decoration: none;
+				&:hover {
+					svg,
+					svg * {
+						fill:$gray3 !important;
+					}
+				}
+			}
+		}
+		
+		.link {
+			cursor: pointer;
+			color: #fff;
+			text-decoration: none;
+			&:hover {
+				color:$gray3;
+			}
+			.t {
+				font-weight: normal;
+				font-size: 2em;
+				line-height: 1.2em;
+				text-align: center;
+				// padding-bottom: 1rem;
+				@include down(sm) {
+					font-size: 2em;
+					
+				}
+			}
+			.tt { 
+				font-family: "Raleway",sans-serif !important;
+				padding-bottom: 1.5rem;
+				@include down(sm) {
+					padding-bottom: 1rem;
+				}
+				font-weight: 300;
+				font-size: 1em;
+				letter-spacing: 0.01em;
+				line-height: 1em;
+				text-align: center;
+			}
+		}
+
+		.langs {
+			text-align: center;
+			a {
+				margin-right: .5rem;
+				text-decoration: none;
+				&.active {
+					font-weight: bold;
+				}
+				&:hover {
+					color: $gray3;
+				}
+			}
+		}
+	}
+
+
+
+	.form-subscribe {
+		.title {
+			font-family: "Raleway",sans-serif !important;
+			font-weight: normal;
+			font-size: 3.5em;
+			line-height: 1.2em;
+			text-align: left;
+			color: #fff;
+			margin-bottom: 2rem;
+			@media all and (max-width: 1600px) {
+				font-size: 2.8em;
+				line-height: 1.1em;
+            }
+		}
+		.subtitle {
+			font-weight: 300;
+			font-size: 1em;
+			letter-spacing: 0.01em;
+			line-height: 1.5625em;
+			text-align: left;
+			color: #ffa900;
+			margin-bottom: 2rem;
+		}
+		.form-control {
+			background: #444;
+			border: none;
+			margin-bottom: 2rem;
+			color: $yellow;
+			&::placeholder {
+				color: $gray2;
+			}
+		}
+		.form-bottom {
+			display: flex;
+			justify-content: space-between;
+			div {
+
+			}
+		}
+
+	}
+}
+

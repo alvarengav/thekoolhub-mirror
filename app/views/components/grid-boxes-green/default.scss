@@ -1,0 +1,69 @@
+.grid-boxes-green {
+    background-color: $cyan;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    @include down(sm) {
+        padding: 4em 0;
+    }
+    .title {
+        @extend .h1;
+        margin-bottom: 6rem;
+
+    }
+
+    .end-btn {
+        text-align: center;
+        padding-top: 4rem;
+    }
+    .box {
+        text-align: center;
+        background-color: white;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        padding: 0 2em;
+        margin-bottom: 2rem;
+        justify-content: center;
+        position: relative;
+        @include down(md) {
+            padding: 2em;
+        }
+        @include down(sm) {
+            height: 350px;
+        }
+        margin-bottom: 2rem;
+        .box-icon {
+            margin-bottom: 2rem;
+            svg, img {
+                width: 47px;
+            }
+        }
+        .box-title {
+            font-weight: 600;
+            font-size: 1.75em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0em;
+            line-height: 1.5em;
+            text-align: center; 
+            position: absolute;
+            top: 3.5rem;
+            left: 0;
+            right: 0;
+        }
+        .box-text {
+            font-weight: 300;
+            font-size: 1em;
+            letter-spacing: 0.01em;
+            line-height: 1.5em;
+            text-align: center;
+            opacity: .8;
+        }
+        .more {
+            
+            position: absolute;
+            bottom: 3.5rem;
+            left: 0;
+            right: 0;
+        }
+    }
+}

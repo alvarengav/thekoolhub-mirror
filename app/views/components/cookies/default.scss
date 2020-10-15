@@ -1,0 +1,41 @@
+svg.cookie {
+    overflow: visible;
+    width: 1.9189rem;
+    height: 1.9027rem;
+    transform: matrix(1,0,0,1,0,0);
+    margin-right: 1rem;
+}
+
+.cookies {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,.5);
+    font-family: "Raleway",sans-serif !important;
+    text-align: left;
+    color: #fff;
+    line-height: 2rem;
+    vertical-align: middle;
+    z-index: 1000;
+    padding: 1em;
+    font-size: 0.75rem;
+    @include down(sm) {
+        line-height: 1.5rem;
+        padding-right: 50px;
+    }
+    .close {
+        position: absolute;
+        width: 1rem;
+        top: 1.25rem;
+        right: 1.25rem;
+    }
+
+    .liveadmin-settings .btn-settings {
+        position: absolute;
+        top: -5px;
+        right: 340px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+}

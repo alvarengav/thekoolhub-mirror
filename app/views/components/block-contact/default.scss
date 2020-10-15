@@ -1,0 +1,80 @@
+.block-contact {
+    .image-text-block-form {
+		.title {
+			font-family: "Raleway",sans-serif !important;
+			font-weight: normal;
+			font-size: 4.375em;
+			line-height: 4.375em;
+			text-align: left;
+			color: $gray3;
+			margin-bottom: 2rem;
+		}
+		.form-control {
+			background: white;
+			// border: 1px solid $gray3;
+			border: transparent;
+            margin-bottom: 1rem;
+            padding: 1.2rem 1rem;
+			color: $gray3;
+			&::placeholder {
+				color: $gray2;
+            }
+		}
+        textarea {
+            height: 170px;
+        }
+        .custom-control {
+            color: $gray3;
+            a {
+                color: $gray3;
+            }
+        }
+        .custom-control-label::before {
+            border-color: $gray3;
+            border-width: 1px;
+            outline: none;
+            background: transparent;
+            
+			background: white;
+			border: 1px solid #f1f1f1;
+			// border: transparent;
+
+        }
+        .custom-radio .custom-control-input:checked ~ .custom-control-label::before,
+        .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+			// background: transparent;
+			background: white;
+        }
+        .custom-radio .custom-control-input:checked ~ .custom-control-label::after,
+        .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10.887' height='7.619' viewBox='0 0 10.887 7.619'%3E%3Cg id='stick' transform='translate(1.38 1.408)'%3E%3Cpath id='Trazado_355' data-name='Trazado 355' d='M-16202.555-20342.889l1.775,2.795,6.324-5.209' transform='translate(16202.555 20345.303)' fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E%0A");
+            top: 7px;
+            left: -24px;
+            width: .8rem;
+            height: .8rem;
+        }
+        .checks {
+            margin-top: 2em;
+            font-size: 1em;
+            b {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+		.form-bottom {
+			display: flex;
+            margin-top: 2rem;
+            div {
+                margin-right: 0rem;
+            }
+            .btn {
+                margin-top: 0;
+            }
+            .sign-form {
+                margin-top: 5px;
+                transform: scale(.8);
+            }
+		}
+    }
+    
+}

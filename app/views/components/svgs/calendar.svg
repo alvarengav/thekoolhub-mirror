@@ -1,0 +1,17 @@
+
+    <svg id="icono-calendario" xmlns="http://www.w3.org/2000/svg" width="15" height="13.316" viewBox="0 0 15 13.316">
+    <g id="Grupo_85" data-name="Grupo 85" transform="translate(0 1.281)">
+        <path id="Trazado_334" data-name="Trazado 334" d="M972.486,954.5H958.818a.661.661,0,0,1-.666-.656V943.118a.661.661,0,0,1,.666-.656h13.668a.661.661,0,0,1,.666.656v10.722a.661.661,0,0,1-.666.656Zm-13-1.313H971.82v-9.409H959.484v9.409Z" transform="translate(-958.152 -942.462)" fill="#fff"/>
+    </g>
+    <g id="Grupo_88" data-name="Grupo 88" transform="translate(1.833)">
+        <g id="Grupo_86" data-name="Grupo 86" transform="translate(9.798)">
+        <path id="Trazado_335" data-name="Trazado 335" d="M975.559,944.893a.768.768,0,0,1-.768-.768v-2.561a.768.768,0,0,1,1.537,0v2.561a.768.768,0,0,1-.768.768Z" transform="translate(-974.791 -940.795)" fill="#fff"/>
+        </g>
+        <g id="Grupo_87" data-name="Grupo 87">
+        <path id="Trazado_336" data-name="Trazado 336" d="M962.809,944.893a.768.768,0,0,1-.768-.768v-2.561a.768.768,0,0,1,1.537,0v2.561a.768.768,0,0,1-.768.768Z" transform="translate(-962.041 -940.795)" fill="#fff"/>
+        </g>
+    </g>
+    <g id="Grupo_89" data-name="Grupo 89" transform="translate(0.46 4.999)">
+        <path id="Trazado_337" data-name="Trazado 337" d="M972.5,949.132H959.08a.389.389,0,0,1,0-.768H972.5a.389.389,0,0,1,0,.768Z" transform="translate(-958.75 -948.364)" fill="#fff"/>
+    </g>
+    </svg>

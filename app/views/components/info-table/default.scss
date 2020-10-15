@@ -1,0 +1,62 @@
+.info-table {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    @include down(sm) {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        
+    }
+    .table {
+        max-width: 1000px;
+        margin: 0 auto;
+        thead th {
+            border-top: 0;
+            border-bottom: 1px solid $gray3;
+            font-weight: bold;
+            font-size: 1.5em;
+            line-height: 1.5em;
+        }
+        td {
+            border-bottom: 1px solid $gray3;
+        }
+    }
+
+    .more {
+        margin-top: 4rem;
+        text-align: center;
+    }
+
+    
+    &.custom-gray1 {
+        background-color: $gray1;
+    }
+    
+    &.custom-pink {
+        background-color: $pink;
+        color: white;
+        thead th, td {
+            border-color: white;
+        }
+        svg * {
+            stroke: white !important;
+        }
+        .btn-black-outline {
+            color: white;
+            border-color: white;
+        }
+    }
+    td .btn-outline {
+        display: block;
+        color:white;
+        border-color: white;
+        padding: 0;
+    }
+}
+
+.last-bold.info-table tbody tr:last-child td {
+    border-bottom: transparent;
+    font-weight: bold;
+}
+.last-bold.info-table tfoot tr:last-child td {
+    border: 0;
+}

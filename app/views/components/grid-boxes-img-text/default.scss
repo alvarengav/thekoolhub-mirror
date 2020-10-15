@@ -1,0 +1,92 @@
+.grid-boxes-img-text {
+    padding: 4rem 0;
+    .box {
+        margin-bottom: 4rem;
+        display: flex;
+        .picture {
+            width: 50%;
+            background-color: $gray2;
+            height: 790px;
+        }
+        .textContent {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            .title {
+                color: white;
+                margin-bottom: 1rem;
+                width: 485px;
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 35px;
+                text-align: left;
+            }
+            .text {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                color: white;
+            }
+            .info {
+                display: flex;
+                div:first-child {
+                    margin-right: 2rem;
+                }
+                .date {
+                    font-weight: 300;
+                    font-size: 12px;
+                    line-height: 18px;
+                    svg {
+                        margin-top: -5px;
+                        margin-right: 5px;
+                    }
+                }
+                .time {
+                    font-weight: 300;
+                    font-size: 12px;
+                    line-height: 18px;
+                    svg {
+                        margin-top: -5px;
+                        margin-right: 5px;
+                    }
+                }
+                .register {
+                    font-size: 16px;
+                    letter-spacing: 0.01em;
+                    line-height: 25px;
+                    svg {
+                        margin-top: -2px;
+                        margin-left: 5px;
+                    }
+                }
+                .down {
+                    font-size: 16px;
+                    letter-spacing: 0.01em;
+                    line-height: 25px;
+                    svg {
+                        margin-top: -2px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+
+    }
+    .box-pink {
+        .textContent {
+            background: $pink;
+        }
+    }
+    .box-green {
+        .textContent {
+            background: $green;
+        }
+    }
+    .box-yellow {
+        .textContent {
+            background: $yellow;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+.line-subcribe {
+    background-color: #333333;
+    color: white;
+    padding: 2rem 0;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        @include down(md) {
+            flex-direction: column;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 1.5em;
+            letter-spacing: -0.02em;
+            text-align: left;
+            width: 600px;
+            @media all and (max-width: 1600px) {
+                width: auto;
+                margin-top: 5px;
+                font-size: 1.2em;
+            }
+            // @media all and (max-width: 800px) {
+            //     width: 60%;
+            //     margin-top: 5px;
+            //     font-size: 1.2em;
+            // }
+            font-family: Lato;
+            @include down(md) {
+                width: 100%;
+                margin-bottom: .5rem;
+            }
+        }
+        input {
+            background-color: #444444;
+            border: none;
+            width: 250px;
+            margin-left: 1rem;
+            display: inline-block;
+            padding: .5rem 1rem;
+            font-size: .8em;
+            line-height: 1.5;
+            color: $yellow;
+            &::placeholder {
+                color: #666666;
+            }
+            
+            @media all and (max-width: 1600px) {
+                width: 33%;
+                // margin-top: 5px;
+                font-size: 1.2em;
+            }
+            @include down(md) {
+                width: 100%;
+                margin: .5rem 0;
+            }
+        }
+        .btn {
+            line-height: 1.5;
+            border: none;
+            font-size: 1em;
+            margin-left: -5px;
+            padding: .5rem 1rem .4rem 1rem;
+            @include down(md) {
+                width: 100%;
+                margin: .5rem 0;
+            }
+        }
+    }
+}

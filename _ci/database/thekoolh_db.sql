@@ -17,6 +17,9 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+-- default mysql mode
+SET @INITIAL_MODE = @@SESSION.sql_mode; -- set in last line, go
+SET @@SESSION.sql_mode = '';
 -- ----------------------------
 -- Table structure for blog
 -- ----------------------------
@@ -2637,3 +2640,6 @@ INSERT INTO `team` VALUES (5, 'L\'art de beure en bona companyia!', '', 'De peti
 INSERT INTO `team` VALUES (8, '', '', '', 'ca', 1, 0, 3);
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- set default mode
+SET @@SESSION.sql_mode = @INITIAL_MODE;

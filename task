@@ -1,0 +1,16 @@
+Tarea 1
+Resolver el problema que está en la página spaces
+url: /{lang}/spaces
+
+Tarea 2
+Guardar los campos del formulario en la base de datos
+url: /{lang}/spaces
+el formulario usa mailcheap para enviar el correo
+
+Tarea 3
+Agregar a los formularios dos input checked[terminos, quiero recibir noticias]
+
+url :
+    -contact
+    -community
+    -show/rooms

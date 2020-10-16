@@ -1,5 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['test'] = "test/index";
+
 require NZAPATH.'config/routes.php';
 
 $route['contact'] = "app/contact";

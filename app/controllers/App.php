@@ -32,13 +32,14 @@ class App extends APP_Controller
 		return $this->index(isset($this->uri->segments[2]) && $this->uri->segments[2] ? $this->uri->segments[2] : 'home');
 	}
 
-	public function changelang($lang) {
+	public function changelang($lang)
+	{
 		$routes = [
 			['es' => '', 'en' => ''],
 			['es' => 'nosotros', 'en' => 'about'],
 			['es' => 'espacios', 'en' => 'spaces'],
 			['es' => 'informacion', 'en' => 'about'],
-			['es' => 'comunidad', 'en' => 'community'], 
+			['es' => 'comunidad', 'en' => 'community'],
 		];
 		$currentUrl = $_SESSION['CurrentUrl'];
 		//$currentUrl = 'http://kool.test/en/spaces';
@@ -48,16 +49,15 @@ class App extends APP_Controller
 			$route = array_search($currentUrlParts[4], array_column($routes, 'en'));
 			$currentUrlParts[3] = 'es';
 			$currentUrlParts[4] = $routes[$route]['es'];
-			$newUrl = implode('/',$currentUrlParts);
+			$newUrl = implode('/', $currentUrlParts);
 		} else {
 			$route = array_search($currentUrlParts[4], array_column($routes, 'es'));
 			$currentUrlParts[3] = 'en';
 			$currentUrlParts[4] = $routes[$route]['en'];
-			$newUrl = implode('/',$currentUrlParts);
+			$newUrl = implode('/', $currentUrlParts);
 		}
-			// if ($currentUrl )
+		// if ($currentUrl )
 		redirect($newUrl);
-
 	}
 
 
@@ -65,7 +65,7 @@ class App extends APP_Controller
 	{
 		$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		$_SESSION["CurrentUrl"] = $actual_link;
-		
+
 		$route = 'home';
 		error_reporting(E_ALL & ~E_NOTICE);
 
@@ -241,16 +241,29 @@ class App extends APP_Controller
 	public function ajax_subscribe()
 	{
 
+		$email = $this->input->post('EMAIL');
+		$fname = $this->input->post('FNAME');
+
+		//si el email no tiene el formato correcto, se devuelve un error 422
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($fname)){
+			header('HTTP/1.1 422 Unprocessable Entity');
+			// header('Content-Type: application/json');
+			echo json_encode(array(
+				'error_message' => 'empty or invalid email, or empty FNAME',
+			));
+			return;
+		}
+
 		if ($this->input->post()) {
 			$user = array(
 				'active' => 1,
 				'created' => date('Y-m-d H:i:s'),
 				'mail' => $this->input->post('EMAIL'),
 				'name' => $this->input->post('FNAME'),
-				'lastname' => $this->input->post('LNAME'),
-				'bussines' => $this->input->post('MMERGE5'),
-				'lang' => $this->input->post('lang'),
-				'phone' => $this->input->post('MMERGE3'),
+				'lastname' => $this->input->post('LNAME') ? $this->input->post('LNAME') : NULL, //is empty set null
+				'bussines' => $this->input->post('MMERGE5') ? 'Si' : 'No',
+				'lang' => $this->input->post('lang') ? $this->input->post('lang') : NULL,
+				'phone' => $this->input->post('MMERGE3') ? $this->input->post('MMERGE3') : NULL,
 				'form' => $this->input->post('form')
 			);
 
@@ -260,7 +273,8 @@ class App extends APP_Controller
 		}
 	}
 
-	public function custom_newsletter() {
+	public function custom_newsletter()
+	{
 		$config = $this->Data->GetInfo('cogs');
 
 		if (

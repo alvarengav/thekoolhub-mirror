@@ -5,9 +5,9 @@ $query_builder = TRUE;
 
 $db['dev'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'vaal-server',
 	'username' => 'root',
-	'password' => '',
+	'password' => 'LAav92',
 	'database' => 'thekoolh_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

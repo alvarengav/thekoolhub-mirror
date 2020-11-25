@@ -13,6 +13,20 @@ class App extends APP_Controller
 			'skool'       =>  array('section' => 'skool', 'theme' => 'default', 'pager' => 'skool'),
 		);
 
+	public $allowed_routes = [
+		['es' => '', 'en' => ''],
+		['es' => 'nosotros', 'en' => 'about'],
+		['es' => 'espacios', 'en' => 'spaces'],
+		['es' => 'informacion', 'en' => 'about'],
+		['es' => 'comunidad', 'en' => 'community'],
+		['es' => 'eventos', 'en' => 'events'],
+		['es' => 'contacto', 'en' => 'contact'],
+		['es' => 'skool', 'en' => 'skool'],
+		['es' => 'noticias', 'en' => 'news'],
+		['es' => 'showroom', 'en' => 'showroom'],
+		['es' => 'retailers', 'en' => 'retailers']
+	];
+
 	public function __construct()
 	{
 		$this->data['lang'] = 'es';
@@ -34,26 +48,23 @@ class App extends APP_Controller
 
 	public function changelang($lang)
 	{
-		$routes = [
-			['es' => '', 'en' => ''],
-			['es' => 'nosotros', 'en' => 'about'],
-			['es' => 'espacios', 'en' => 'spaces'],
-			['es' => 'informacion', 'en' => 'about'],
-			['es' => 'comunidad', 'en' => 'community'],
-		];
 		$currentUrl = $_SESSION['CurrentUrl'];
 		//$currentUrl = 'http://kool.test/en/spaces';
 		$currentUrlParts = explode('/', $currentUrl);
 		//$route = $route[2]['es'];
 		if ($lang === 'es') {
-			$route = array_search($currentUrlParts[4], array_column($routes, 'en'));
+			if (!empty($currentUrlParts[4])) {
+				$route = array_search($currentUrlParts[4], array_column($this->allowed_routes, 'en'));
+				$currentUrlParts[4] = $this->allowed_routes[$route]['es'];
+			}
 			$currentUrlParts[3] = 'es';
-			$currentUrlParts[4] = $routes[$route]['es'];
 			$newUrl = implode('/', $currentUrlParts);
 		} else {
-			$route = array_search($currentUrlParts[4], array_column($routes, 'es'));
+			if (!empty($currentUrlParts[4])) {
+				$route = array_search($currentUrlParts[4], array_column($this->allowed_routes, 'es'));
+				$currentUrlParts[4] = $this->allowed_routes[$route]['en'];
+			}
 			$currentUrlParts[3] = 'en';
-			$currentUrlParts[4] = $routes[$route]['en'];
 			$newUrl = implode('/', $currentUrlParts);
 		}
 		// if ($currentUrl )
@@ -64,7 +75,17 @@ class App extends APP_Controller
 	public function index($route = 'home')
 	{
 		$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-		$_SESSION["CurrentUrl"] = $actual_link;
+		$path = parse_url($actual_link)['path'];
+		$path = trim($path, '/');
+		$pathParts = explode('/', $path);
+
+		echo "<!--" . count($pathParts) . "-->";
+
+		if (isset($pathParts[1])) {
+			if (in_array($pathParts[1], array_column($this->allowed_routes, $pathParts[0]))) {
+				$_SESSION["CurrentUrl"] = $actual_link;
+			}
+		}
 
 		$route = 'home';
 		error_reporting(E_ALL & ~E_NOTICE);
@@ -81,7 +102,7 @@ class App extends APP_Controller
 		if ($this->session->userdata('is_admin')) {
 			$this->data['admin'] = true;
 		}
-		// 
+		//
 
 
 		if (!isset($this->routes[$route]))
@@ -133,8 +154,8 @@ class App extends APP_Controller
 		$this->data['lang'] = $lang;
 
 
-		$routes = ['', 'about', 'spaces', 'info', 'skool', 'community', 'news', 'contact', 'post', 'events', 'london', 'showroom'];
-		$routes_es = ['', 'nosotros', 'espacios', 'informacion', 'skool', 'comunidad', 'noticias', 'contacto', 'articulo', 'eventos', 'london', 'showroom'];
+		$routes = ['', 'about', 'spaces', 'info', 'skool', 'community', 'news', 'contact', 'post', 'events', 'london', 'showroom', 'retailers'];
+		$routes_es = ['', 'nosotros', 'espacios', 'informacion', 'skool', 'comunidad', 'noticias', 'contacto', 'articulo', 'eventos', 'london', 'showroom', 'retailers'];
 
 		$this->data['routes'] = $routes;
 		$this->data['routes_es'] = $routes_es;
@@ -202,6 +223,13 @@ class App extends APP_Controller
 				$this->data['headers']['title'] = "Kool High";
 				$this->data['headers']['share-image'] = "https://thekoolhub.com/files/2020/07/copia-de-dsc05970-1.jpg";
 			}
+
+			if ($ur == 'retailers') {
+				$this->data['show_seo_settings'] = true;
+				$this->data['headers']['head-title'] = "Kool High";
+				$this->data['headers']['title'] = "Kool High";
+				$this->data['headers']['share-image'] = "https://thekoolhub.com/files/2020/07/copia-de-dsc05970-1.jpg";
+			}
 		}
 
 
@@ -226,6 +254,7 @@ class App extends APP_Controller
 
 
 		$this->load->view('base', $this->data);
+		echo "<!-- " . $_SESSION['CurrentUrl'] . "-->";
 
 		// echo '<!--';
 		// print_r($this->Data->notranslate);
@@ -241,29 +270,16 @@ class App extends APP_Controller
 	public function ajax_subscribe()
 	{
 
-		$email = $this->input->post('EMAIL');
-		$fname = $this->input->post('FNAME');
-
-		//si el email no tiene el formato correcto, se devuelve un error 422
-		if (!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($fname)){
-			header('HTTP/1.1 422 Unprocessable Entity');
-			// header('Content-Type: application/json');
-			echo json_encode(array(
-				'error_message' => 'empty or invalid email, or empty FNAME',
-			));
-			return;
-		}
-
 		if ($this->input->post()) {
 			$user = array(
 				'active' => 1,
 				'created' => date('Y-m-d H:i:s'),
 				'mail' => $this->input->post('EMAIL'),
 				'name' => $this->input->post('FNAME'),
-				'lastname' => $this->input->post('LNAME') ? $this->input->post('LNAME') : NULL, //is empty set null
-				'bussines' => $this->input->post('MMERGE5') ? 'Si' : 'No',
-				'lang' => $this->input->post('lang') ? $this->input->post('lang') : NULL,
-				'phone' => $this->input->post('MMERGE3') ? $this->input->post('MMERGE3') : NULL,
+				'lastname' => $this->input->post('LNAME'),
+				'bussines' => $this->input->post('MMERGE5'),
+				'lang' => $this->input->post('lang'),
+				'phone' => $this->input->post('MMERGE3'),
 				'form' => $this->input->post('form')
 			);
 

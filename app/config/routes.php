@@ -1,12 +1,16 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['test'] = "test/index";
+// $route['test/:num'] = "test/num";
+// $route['test/(:any)'] = 'test/any/$1';
+// $route['test/(:any)'] = 'test/any/$1/$2';
 
 require NZAPATH.'config/routes.php';
 
 $route['contact'] = "app/contact";
 $route['custom_newsletter'] = "app/custom_newsletter";
 $route['ajax_subscribe'] = "app/ajax_subscribe";
+$route['community_ajax_subscribe'] = "community/ajax_subscribe";
 // $route['(.*)'] = 'app/index/$1';
 $route['instagramApi/(.*)'] = 'app/instagramApi/$1';
 $route['liveadmin/(.*)'] = 'app/liveadmin/$1';

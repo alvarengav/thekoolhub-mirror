@@ -143,6 +143,10 @@ $this->load->view('components/vertical-gallery-and-text/wihoutbtns', [
                             margin-left: 0 !important;
                         }
 
+                        #mc-embedded-subscribe:disabled:hover{
+                            background-color: #1a1a1a;
+                        }
+
                         #mc_embed_signup input {
                             border-radius: 0 !important;
                             margin-bottom: 5px;
@@ -161,9 +165,8 @@ $this->load->view('components/vertical-gallery-and-text/wihoutbtns', [
                             line-height: 1.2em;
                         }
                     </style>
-                    <?php echo $this->config->item('lang', 'app'); ?>
                     <div id="mc_embed_signup">
-                        <form data-action="<?= base_url('ajax_subscribe') ?>" noaction="https://xdthekoolhub.us4.list-manage.com/subscribe/post?u=06db20708c0634f21dd9424bc&amp;id=c6534103a5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                        <form data-action="<?= base_url('ajax_subscribe') ?>" noaction="https://_thekoolhub.us4.list-manage.com/subscribe/post?u=06db20708c0634f21dd9424bc&amp;id=c6534103a5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
                             <div id="mc_embed_signup_scroll">
                                 <? 
                                 $id = 'space-chimp-form';
@@ -182,36 +185,32 @@ $this->load->view('components/vertical-gallery-and-text/wihoutbtns', [
                                     <div class="response" id="mce-success-response" style="display:none"></div>
                                 </div>
                                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_06db20708c0634f21dd9424bc_c6534103a5" tabindex="-1" value=""></div>
-                                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-black"></div>
+                                <!-- <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_06db20708c0634f21dd9424bc_c6534103a5" tabindex="-1" value=""></div> -->
+                                <!-- <div class="clear"><input type="submit" value="Subscribe" name="subscribe" class="btn btn-black"></div> -->
+
+
                                 <!-- Sección que contiene los checkbox de terminos y condiciones -->
                                 <div class="form-bottom">
-
-
-
                                     <div class="div">
-
+                                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_06db20708c0634f21dd9424bc_c6534103a5" tabindex="-1" value=""></div>
                                         <input type="hidden" name="lang" value="<?= $language ?>">
 
 
-
-                                        <button class="btn btn-outline"><?= $this->Data->translate('Enviar', $lang) ?></button>
+                                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-black" disabled>
+                                        <!-- <button class="btn btn-outline"><?= $this->Data->translate('Enviar', $lang) ?></button> -->
 
                                     </div>
 
                                     <div class="div sign-form">
 
                                         <div class="custom-control custom-checkbox liveadmin-settings">
-
-
-
                                             <? 
 
                                   $id = 'footer_legal_2';
 
                                   $this->load->view('components/liveadmin/settings', ['url'=>'contents/one_info_links', 'id'=>$id, 'text'=>'Edita enlace terminos']); 
 
-                                  //Agregar clase  al contenedor para flotar btn
+                                //   //Agregar clase  al contenedor para flotar btn
 
                                   $data = $this->Data->GetInfo($id);
 
@@ -238,10 +237,9 @@ $this->load->view('components/vertical-gallery-and-text/wihoutbtns', [
                             
 
                                 ?>
-                                            <!-- fin seccion terminos y condiciones -->
 
-                                            
-                                            <input type="checkbox" name="check" class="custom-control-input" id="<?= $id ?>-check1">
+
+                                            <input type="checkbox" name="check" class="custom-control-input input-check" id="<?= $id ?>-check1">
 
                                             <label class="custom-control-label" for="<?= $id ?>-check1"><?= $this->Data->translate('Acepto los', $lang) ?> <a href="#<?= prep_word_url($link->title) ?>" data-info="<?= $link->id_post ?>" class="show_modal_info"><?= $this->Data->translate('términos y condiciones', $lang) ?></a>.</label>
 
@@ -249,7 +247,7 @@ $this->load->view('components/vertical-gallery-and-text/wihoutbtns', [
 
                                         <div class="custom-control custom-checkbox">
 
-                                            <input type="checkbox" name="send_news" class="custom-control-input" id="<?= $id ?>-check2">
+                                            <input type="checkbox" name="send_news" class="custom-control-input input-check" id="<?= $id ?>-check2">
 
                                             <label class="custom-control-label" for="<?= $id ?>-check2"><?= $this->Data->lang('Quiero recibir notícias.') ?></a></label>
 
@@ -258,6 +256,8 @@ $this->load->view('components/vertical-gallery-and-text/wihoutbtns', [
                                     </div>
 
                                 </div>
+
+                                <!--fin seccion terminos y condiciones -->
                             </div>
                         </form>
                     </div>
@@ -295,50 +295,6 @@ $this->load->view('components/vertical-gallery-and-text/wihoutbtns', [
             </div>
         </div>
     </div>
-
-
-    <? $this->load->view('components/call-to-action/index', [
-        'style'=>'yellow white-button',
-        'title'=> $this->Data->Content('home-call-to-action-title'),
-        'btn'=> $this->Data->Content('home-call-to-action-btn'),
-        
-    ]); ?>
 </div>
 
-<script>
-    $(document).on('click', '#mc-embedded-subscribe', function(e) {
-        $this = $('#mc-embedded-subscribe-form');
-
-        var inputs = $this.find(':input.form-control:not(#mce-LNAME, #mce-MMERGE5, #mce-MMERGE3)');
-
-        //validando que los inputs no esten vacíos
-        var invalid = false;
-        inputs.each(function(index, input) {
-            if (!input.value) {
-                invalid = true;
-                return false;
-            }
-        });
-
-        // if (invalid) return;
-
-        inputEmail = $this.find("#mce-EMAIL");
-
-        // if (!isValidEmail(inputEmail.val())) return;
-
-        function isValidEmail(email) {
-            return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
-        }
-
-        $.ajax({
-            type: "POST",
-            url: $this.attr('data-action'),
-            data: $this.serialize(),
-            dataType: 'JSON',
-        }).done(function(response) {
-            console.log('subscriptor registered in database');
-        }).fail(function(error) {
-            console.error(error);
-        });
-    });
-</script>
+<?php $this->load->view('common/subscribe-form-js') ?>

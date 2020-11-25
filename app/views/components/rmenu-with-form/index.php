@@ -1,9 +1,28 @@
-<? $uniq = uniqid() ?>
+<? $uniq = uniqid(); 
+$currentUrl = base_url(uri_string()); 
+$urlArray = explode('/',$currentUrl);
+$url = end($urlArray);
+?>
 
-<a href="/<?= $lang ?>/london" class="london">London is coming!</a>
-
+<? if($url != 'london'): ?>
+<a href="/<?= $lang ?>/london" class="london">
+    <? 
+    $id = 'london';
+    $this->load->view('components/basic-text-block/btn-link', [
+    'title'=> $this->Data->Content($id),
+    ]); ?>
+</a>
+<? else: ?>
+<a href="/<?= $lang ?>" class="london">
+    <? 
+    $id = 'london-btn2';
+    $this->load->view('components/basic-text-block/only-text', [
+    'title'=> $this->Data->Content($id.'-title'),
+    ]); ?>
+</a>
+<? endif; ?>
 <style>
-        .london {
+.london {
     -webkit-transition: -webkit-transform ease-in-out 0.3s;
     transition: -webkit-transform ease-in-out 0.3s;
     -o-transition: transform ease-in-out 0.3s;
@@ -89,7 +108,7 @@
 
                 <input type="text" name="name" class="form-control"
                     placeholder="<?= $this->Data->translate('Introduce tu nombre...',$lang) ?>">
-                        <input type="text" name="lastname" class="form-control"
+                <input type="text" name="lastname" class="form-control"
                     placeholder="<?= $this->Data->translate('Introduce tu apellido...',$lang) ?>"></input>
 
                 <input type="text" name="mail" class="form-control"
@@ -339,10 +358,12 @@
             <div class="langs">
 
                 <a href="<?= base_url() ?>changelang/es" <? if($lang=='es' ): ?>class="active"
-                    <? endif ?>>ES</a>
+                    <? endif ?>>ES
+                </a>
 
                 <a href="<?= base_url() ?>changelang/en" <? if($lang=='en' ): ?>class="active"
-                    <? endif ?>>ENG</a>
+                    <? endif ?>>ENG
+                </a>
 
             </div>
 
@@ -355,7 +376,7 @@
 
 
 <script>
-                var rmenuActive = false;
+var rmenuActive = false;
 
 var rmenu = function(bk) {
 

@@ -37,19 +37,19 @@
 
 
 
-            <? 
+            <?
             if (isset($btn)) {
                 $this->load->view('components/liveadmin/admin-btn', [
 
                     'id'=>$id.'-btn1',
-    
+
                     'class'=> 'btn btn-primary',
-    
+
                     'html'=> $btn,
-    
+
                     'default'=>$btnLink,
-    
-                ]);    
+
+                ]);
             }
              ?>
 

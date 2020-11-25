@@ -291,7 +291,9 @@ $.fn.ajaxForm = function() {
         url:form.attr('action'),
         data:form.serialize(),
         success:function(data){
-          $('.btn',form).css('pointer-events', 'all');
+		  $('.btn',form).css('pointer-events', 'all');
+		  
+		  console.log(data.error);
 
           // loading.end();
           if(data.error==0){

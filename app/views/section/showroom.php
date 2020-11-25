@@ -78,9 +78,10 @@
                     /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
 	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
                     </style>
-                    <div id="mc_embed_signup">
+                    <div id="mc_embed_signup" class="subscribe-form-container">
                         <form
-                            action="https://thekoolhub.us4.list-manage.com/subscribe/post?u=06db20708c0634f21dd9424bc&amp;id=b7c3a7efbf"
+                            data-action="<?= base_url('ajax_subscribe'); ?>"
+                            noaction="https://_thekoolhub.us4.list-manage.com/subscribe/post?u=06db20708c0634f21dd9424bc&amp;id=b7c3a7efbf"
                             method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
                             class="validate" target="_blank" novalidate>
                             <div id="mc_embed_signup_scroll">
@@ -89,6 +90,7 @@
                                 $this->load->view('components/basic-text-block/only-title', [
                                 'title'=> $this->Data->Content($id.'-title'),
                                 ]); ?>
+                                <input type="hidden" name="form" value="showroom">
                                 <div class="indicates-required"><span class="asterisk">*</span> Required fields</div>
                                 <input type="email" placeholder="<?= $this->Data->lang('Email') ?>" value=""
                                     name="EMAIL" class="form-control required email" id="mce-EMAIL">
@@ -107,15 +109,15 @@
                                 </div>
                                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                                        name="b_06db20708c0634f21dd9424bc_b7c3a7efbf" tabindex="-1" value=""></div>
+                                        name="b_06db20708c0634f21dd9424bc_b7c3a7efbf" tabindex="-1" value=""><input type="hidden" name="lang" value="<?= $language ?>"></div>                                        
                                 <div class="clear">
                                     <input type="submit" style="float:left" value="Subscribe" name="subscribe"
-                                        id="mc-embedded-subscribe" class="btn btn-black">
+                                        id="mc-embedded-subscribe" class="btn btn-black" disabled>
                                     <div style="float: left; margin-left: 1rem; margin-top: 1rem;">
 
                                         <div class="custom-control custom-checkbox" style="color: #888">
 
-                                            <input type="checkbox" class="custom-control-input" value=""
+                                            <input type="checkbox" class="custom-control-input input-check" value=""
                                                 name="interested[]" id="interested1">
 
                                             <label class="custom-control-label" for="interested1">Acepto los
@@ -126,7 +128,7 @@
                                         </div>
                                         <div class="custom-control custom-checkbox" style="color: #888">
 
-                                            <input type="checkbox" class="custom-control-input" value=""
+                                            <input type="checkbox" class="custom-control-input input-check" value=""
                                                 name="interested[]" id="interested2">
 
                                             <label class="custom-control-label" for="interested2">Quiero recibir
@@ -245,9 +247,9 @@
                             line-height: 1.2em;
                         }
                         </style>
-                        <div id="mc_embed_signup">
-                            <form data-action="<?= base_url('ajax_subscribe') ?>"
-                                action="https://thekoolhub.us4.list-manage.com/subscribe/post?u=06db20708c0634f21dd9424bc&amp;id=c6534103a5"
+                        <div id="mc_embed_signup" class="subscribe-form-container">
+                            <form data-action="<?= base_url('ajax_subscribe'); ?>"
+                                noaction="https://_thekoolhub.us4.list-manage.com/subscribe/post?u=06db20708c0634f21dd9424bc&amp;id=c6534103a5"
                                 method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
                                 class="validate" target="_blank" novalidate>
                                 <div id="mc_embed_signup_scroll">
@@ -256,7 +258,7 @@
                                 $this->load->view('components/basic-text-block/only-title', [
                                 'title'=> $this->Data->Content($id.'-title'),
                                 ]); ?>
-                                    <input type="hidden" name="form" value="spaces">
+                                    <input type="hidden" name="form" value="showroom">
                                     <div class="indicates-required"><span class="asterisk">*</span> indicates required
                                     </div>
                                     <input type="email" placeholder="<?= $this->Data->lang('Email') ?>" value=""
@@ -276,15 +278,15 @@
                                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input
                                             type="text" name="b_06db20708c0634f21dd9424bc_c6534103a5" tabindex="-1"
-                                            value=""></div>
+                                            value=""><input type="hidden" name="lang" value="<?= $language ?>"></div>
                                     <div class="clear">
                                         <input type="submit" style="float:left" value="Subscribe" name="subscribe"
-                                            id="mc-embedded-subscribe" class="btn btn-black">
+                                            id="mc-embedded-subscribe" class="btn btn-black" disabled>
                                         <div style="float: left; margin-left: 1rem; margin-top: 1rem;">
 
                                             <div class="custom-control custom-checkbox" style="color: #888">
 
-                                                <input type="checkbox" class="custom-control-input" value=""
+                                                <input type="checkbox" class="custom-control-input input-check" value=""
                                                     name="interested[]" id="interested3">
 
                                                 <label class="custom-control-label" for="interested3">Acepto los
@@ -296,13 +298,11 @@
                                             </div>
                                             <div class="custom-control custom-checkbox" style="color: #888">
 
-                                                <input type="checkbox" class="custom-control-input" value=""
+                                                <input type="checkbox" class="custom-control-input input-check" value=""
                                                     name="interested[]" id="interested4">
 
                                                 <label class="custom-control-label" for="interested4">Quiero recibir
                                                     noticias</label>
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -356,3 +356,5 @@
 
 
 </div>
+
+<?php $this->load->view('common/subscribe-form-js') ?>
